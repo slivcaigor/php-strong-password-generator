@@ -9,6 +9,17 @@
 </head>
 
 <body>
+
+    <?php
+    session_start();
+    if (isset($_SESSION['password'])) {
+        $password = $_SESSION['password'];
+        echo "Ecco la password generata: " . $password;
+    }
+    ?>
+
+
+
 </body>
 
 </html>

@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strong Password Generator</title>
 
-    <?php require_once __DIR__ . './libs/helper.php'; ?>
+    <?php
+    session_start();
+    require_once __DIR__ . './libs/helper.php';
+    ?>
 
 
 
@@ -28,6 +31,8 @@
         $password_length = $_GET['password'];
         // chiama la funzione "generateRandomPassword" passando come parametro la lunghezza della password data dal utente per generate una password casuale
         $password = generateRandomPassword($password_length);
+        $_SESSION['password'] = $password;
+        header("Location: ShowPassword.php");
         // stampa la password generata
         echo "Ecco la password generata: $password";
     }
